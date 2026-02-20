@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+<h2>Today: {{ day }}</h2>
+<form method="post">
+{% for c in classes %}
+    {% if c.subject != "LUNCH" %}
+        <p><b>Period {{ c.period }} — {{ c.subject }}</b><br>
+        <select name="{{ c.subject }}">
+            <option value="P">Present</option>
+            <option value="A">Absent</option>
+            <option value="C">Canceled</option>
+            <option value="R">Replaced</option>
+        </select>
+        Replacement: <input name="{{ c.subject }}_rep">
+        </p>
+    {% endif %}
+{% endfor %}
+<button type="submit">Save Attendance</button>
+</form>
+</div>
+{% endblock %}

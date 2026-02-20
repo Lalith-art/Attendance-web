@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+<h2>Attendance Dashboard</h2>
+<table>
+<tr>
+<th>Subject</th>
+<th>Attended</th>
+<th>Total</th>
+<th>%</th>
+<th>Status</th>
+<th>Classes to Recover</th>
+</tr>
+{% for s in data %}
+<tr>
+<td>{{ s.subject }}</td>
+<td>{{ s.attended }}</td>
+<td>{{ s.total }}</td>
+<td>{{ s.percent }}%</td>
+<td class="{{ 'safe' if s.status=='SAFE' else 'shortage' }}">{{ s.status }}</td>
+<td>{{ s.need }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

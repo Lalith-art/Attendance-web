@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+<h2>Calendar</h2>
+<form method="get">
+<input type="date" name="date">
+<button type="submit">View</button>
+</form>
+
+{% if records %}
+<table>
+<tr>
+<th>Period</th>
+<th>Subject</th>
+<th>Status</th>
+<th>Replacement</th>
+</tr>
+{% for r in records %}
+<tr>
+<td>{{ r.period }}</td>
+<td>{{ r.subject }}</td>
+<td>{{ r.status }}</td>
+<td>{{ r.replacement_subject or '-' }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+</div>
+{% endblock %}
