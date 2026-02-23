@@ -6,5 +6,9 @@ app = Flask(__name__)
 def home():
     return "Attendance Website Working!"
 
+@app.route("/templates/calender.html")
+def calender():
+    return "Calender is opening"
+
 if __name__ == "__main__":
     app.run(debug=True)
